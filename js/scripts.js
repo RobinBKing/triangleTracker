@@ -36,9 +36,10 @@ $(document).ready(function() {
     } else if (isoscelesTriangleresult) {                 // same as writing if (result === false)
       $(".triangleType").text("an isosceles triangle.");
     } else if (scaleneTriangleresult) {                 // same as writing if (result === false)
-    $(".triangleType").text("a scalene triangle.");
-    } else {
-      $(".triangleType").text("has no values.");
+      $(".triangleType").text("a scalene triangle.");
+    }
+    else {
+      $(".triangleType").text("has no numeric values. Please enter numbers.");
     }
 
     $("#result").show();
