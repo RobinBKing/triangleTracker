@@ -1,50 +1,21 @@
 var notTriangle = function(side1, side2, side3) {
   //ny two sides equal to the third side
   //two sides less than the third side
-  if(side1 + side2 <= side3){
-    return true;
-  }
-  else if(side2 + side3 <= side1) {
-    return true;
-  }
-  else if(side3 + side1 <= side2) {
-      return true;
-  }
-  else {
-    return false;
-  }
+  return ((side1 + side2 <= side3) || (side2 + side3 <= side1) || (side3 + side1 <= side2));
 };
 var equalTriangle = function(side1, side2, side3) {
   // is an equilateral triangle
-  if (side1 === side2 && side1 === side3) {
-      return true;
-  }
-  else {
-    return false;
-  }
+  return (side1 === side2 && side1 === side3);
 };
 
 var isoscelesTriangle = function(side1, side2, side3) {
   //two sides are equal
-  if(side1 === side2 && (side1 + side2 > side3)) {
-    return true;
-  }
-  if(side2 === side3 && (side2 + side3 > side1)) {
-    return true;
-  }
-  if(side1 === side3 && (side1 + side3 > side2)) {
-    return true;
-  }
-  else {
-    return false;
-  }
+  return ((side1 + side2 > side3) && ((side1 === side2) || (side2 === side3) || (side1 === side3))) ;
 };
 
 var scaleneTriangle = function(side1, side2, side3) {
   //No sides are equal
-  if ((side1 !== side2) && (side1 !== side3) && (side1 + side2 > side3)) {
-      return true;
-  }
+  return ((side1 !== side2) && (side1 !== side3) && (side1 + side2 > side3)) ;
 };
 
 //interface
@@ -66,7 +37,9 @@ $(document).ready(function() {
       $(".triangleType").text("an isosceles triangle.");
     } else if (scaleneTriangleresult) {                 // same as writing if (result === false)
     $(".triangleType").text("a scalene triangle.");
-  }
+    } else {
+      $(".triangleType").text("has no values.");
+    }
 
     $("#result").show();
     event.preventDefault();
